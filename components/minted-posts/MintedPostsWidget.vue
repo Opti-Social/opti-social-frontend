@@ -73,13 +73,15 @@ export default {
 
       const counter = await iggyContract.counter();
 
-      // generate unique random numbers between 1 and (counter-1)
-      this.randomNumbers = [];
+      if (Number(counter) > 1) {
+        // generate unique random numbers between 1 and (counter-1)
+        this.randomNumbers = [];
 
-      while (this.randomNumbers.length < this.numberOfPosts) {
-        const randomNumber = Math.floor(Math.random() * (counter - 1)) + 1;
-        if (!this.randomNumbers.includes(randomNumber)) {
-          this.randomNumbers.push(randomNumber);
+        while (this.randomNumbers.length < this.numberOfPosts) {
+          const randomNumber = Math.floor(Math.random() * (counter - 1)) + 1;
+          if (!this.randomNumbers.includes(randomNumber)) {
+            this.randomNumbers.push(randomNumber);
+          }
         }
       }
       

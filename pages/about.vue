@@ -13,7 +13,7 @@
       <h3 class="mb-3 mt-3">Web3 Social is here.</h3>
 
       <p class="text-break mt-3">
-        SGB Chat is <strong>the first web3 social network</strong> built on Songbird.
+        Opti Social is <strong>the first web3 social network</strong> built on Optimism.
       </p>
 
       <p class="text-break mt-3">
@@ -28,59 +28,22 @@
 
       <p class="text-break mt-3">
         Brought to you by the 
-        <a target="_blank" href="https://songbird.domains">Songbird Domains</a> & Punk Domains
+        <a target="_blank" href="https://punk.domains">Punk Domains</a> & Iggy Social
         team.
       </p>
-
-      <hr />
-
-      <h5>$CHIRP token</h5>
-
-      <p>
-        $CHIRP is the official token of Sgb.Chat, designed to reward and empower active contributors.
-      </p>
-
-      <p>
-        ${{ $config.chatTokenSymbol }} token address is: 
-        <a 
-          target="_blank" 
-          :href="$config.blockExplorerBaseUrl+'/token/'+$config.chatTokenAddress">
-          {{ $config.chatTokenAddress }}
-        </a>
-      </p>
-
-      <p>
-        Regarding the $CHIRP token:
-      </p>
-
-      <ul>
-        <li>$CHIRP is a valueless souvenir token.</li>
-        <li>Anyone who mints a post on Sgb.Chat will receive $CHIRP tokens (this campaign will take place for 1 year).</li>
-      </ul>
-
-      <p>
-        Airdrop details:
-      </p>
-
-      <ul>
-        <li>Eligible participants for the airdrop include both .sgb domain holders and active Sgb.Chat users.</li>
-        <li>If you own multiple .sgb domains, you can claim the airdrop for each domain you have.</li>
-        <li>Users who have minted a post as an NFT on Sgb.Chat will receive an additional $CHIRP airdrop.</li>
-        <li>To claim the airdrop, go to the Airdrop page in the left sidebar of SGB Chat.</li>
-      </ul>
 
       <hr />
 
       <h5>Beta test</h5>
 
       <p class="text-break mt-3">
-        SGB Chat is still in beta. This means that many features are still missing, but will be added over time. 
+        Opti Social is still in beta. This means that many features are still missing, but will be added over time. 
         There may also be bugs and other issues.
       </p>
 
       <p class="text-break mt-3">
-        What we need from you at this point is to try out SGB Chat and provide us with feedback. 
-        Feel free to post ideas, features suggestions, rants directly in the SGB Chat. 
+        What we need from you at this point is to try out Opti Social and provide us with feedback. 
+        Feel free to post ideas, features suggestions, rants directly in the Opti Social. 
         Or you can drop by 
         <a target="_blank" href="https://discord.gg/8dSrwrAQeu">our Discord</a> 
         and share your thoughts there.

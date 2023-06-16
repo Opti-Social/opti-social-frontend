@@ -54,12 +54,12 @@
               <i class="bi bi-arrow-down-up"></i> Swap
             </NuxtLink>
           </li>
-          <li class="nav-item p-1" @click="closeLeftSidebar">
+          <li class="nav-item p-1" @click="closeLeftSidebar" v-if="$config.airdropClaimDomainsAddress || $config.airdropPostMintersAddress">
             <NuxtLink class="nav-link" :class="$route.path.startsWith('/airdrop') ? 'active' : ''" aria-current="page" to="/airdrop">
               <i class="bi bi-gift"></i> Airdrop
             </NuxtLink>
           </li>
-          <li class="nav-item p-1" @click="closeLeftSidebar">
+          <li class="nav-item p-1" @click="closeLeftSidebar" v-if="$config.stakingContractAddress">
             <NuxtLink class="nav-link" :class="$route.path.startsWith('/stake') ? 'active' : ''" aria-current="page" to="/stake">
               <i class="bi bi-cash-stack"></i> Stake & Earn
             </NuxtLink>
@@ -73,7 +73,7 @@
       </div>
 
       <div class="card m-2 bg-light">
-        <div class="card-header bg-light">SGB Chat Newsletter</div>
+        <div class="card-header bg-light">{{ $config.projectName }} Newsletter</div>
         <div class="card-body sidebar-card-body">
           <a class="btn btn-outline-primary mt-2 mb-2" target="_blank" href="https://zcmp.eu/Onz">Join our newsletter!</a>
         </div>

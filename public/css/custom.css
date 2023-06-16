@@ -3,15 +3,12 @@
 @import "./light.css";
 
 :root {
-  --bs-primary: #d27f97 !important;
+  --bs-primary: #FF0420 !important;
   --bs-primary-rgb: 210, 127, 151;
-  --bs-btn-disabled-border-color: #D27F97;
-  --bs-link-color: #D27F97;
-  --bs-nav-pills-link-active-bg: #D27F97 !important;
-  --bs-link-color: #D27F97;
-  --bs-link-hover-color: #c86e88;
-  --bs-link-color-rgb: 210, 127, 151;
-  --bs-link-hover-color-rgb: 200, 110, 136;
+  --bs-btn-disabled-border-color: #FF0420;
+  --bs-nav-pills-link-active-bg: #FF0420 !important;
+  --bs-link-color: #FF0420;
+  --bs-link-hover-color: #ff364c;
   --bs-blue: #1d3b53;
   --bs-indigo: #6610f2;
   --bs-purple: #6f42c1;
@@ -112,6 +109,14 @@
   --bs-breakpoint-lg: 992px;
   --bs-breakpoint-xl: 1200px;
   --bs-breakpoint-xxl: 1400px;
+}
+
+a {
+  color: var(--bs-link-color);
+}
+
+a:hover {
+  color: var(--bs-link-hover-color);
 }
 
 .btn:disabled, .btn.disabled {
@@ -369,7 +374,7 @@
 }
 
 .Vue-Toastification__toast--info.custom-toast-bg {
-  background-color: #D27F97;
+  background-color: #FF0420;
 }
 
 .Vue-Toastification__toast--warning.custom-toast-bg {

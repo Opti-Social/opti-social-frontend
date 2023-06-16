@@ -1,8 +1,8 @@
-# SGB Chat
+# Opti Social
 
-SGB Chat is a Web3 Social frontend website based on the Iggy Social template. It uses [Orbis SDK](https://github.com/OrbisWeb3/orbis-sdk) and Ceramic Network in the background.
+Opti Social is the first Web3 Social network on Optimism. It uses [Orbis SDK](https://github.com/OrbisWeb3/orbis-sdk) and Ceramic Network in the background.
 
-Link: https://sgb.chat
+Link: https://opti.social
 
 What's included:
 

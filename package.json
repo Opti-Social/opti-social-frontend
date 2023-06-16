@@ -1,5 +1,5 @@
 {
-  "name": "iggy-social-frontend",
+  "name": "opti-social-frontend",
   "private": true,
   "scripts": {
     "build": "nuxt build",

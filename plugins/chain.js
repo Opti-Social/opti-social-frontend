@@ -22,6 +22,8 @@ export default defineNuxtPlugin(() => {
       return "Polygon";
     } else if (chainId === 250) {
       return "Fantom";
+    } else if (chainId === 420) {
+      return "Optimism Goerli Testnet";
     } else if (chainId === 4002) {
       return "Fantom Testnet";
     } else if (chainId === 42161) {
@@ -87,6 +89,11 @@ export default defineNuxtPlugin(() => {
         // Fantom Mainnet
         urls = [
           "https://rpc.ankr.com/fantom"
+        ];
+      } else if (networkId === 420) {
+        // Optimism Goerli testnet
+        urls = [
+          "https://optimism-goerli.public.blastapi.io"
         ];
       } else if (networkId === 4002) {
         // Fantom Testnet
@@ -174,14 +181,14 @@ export default defineNuxtPlugin(() => {
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
         rpcUrls: ["https://rpc.ankr.com/optimism"]
       }] 
-    } else if (networkName == "Optimism Testnet") {
+    } else if (networkName == "Optimism Goerli Testnet") {
       method = "wallet_addEthereumChain"
       params = [{ 
-        blockExplorerUrls: [ "https://kovan-optimistic.etherscan.io/" ],
-        chainId: "0x45",
-        chainName: "Optimism Testnet",
+        blockExplorerUrls: [ "https://goerli-optimism.etherscan.io/" ],
+        chainId: "0x1a4",
+        chainName: "Optimism Goerli Testnet",
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: ["https://kovan.optimism.io"]
+        rpcUrls: ["https://goerli.optimism.io"]
       }] 
     } else if (networkName == "Polygon") {
       method = "wallet_addEthereumChain"

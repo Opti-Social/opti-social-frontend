@@ -8,6 +8,7 @@
   "100": "https://rpc.ankr.com/gnosis",
   "137": "https://rpc.ankr.com/polygon",
   "250": "https://rpc.ankr.com/fantom",
+  "420": "https://optimism-goerli.public.blastapi.io",
   "592": "https://astar.public.blastapi.io",
   "1284": "https://rpc.ankr.com/moonbeam",
   "42161": "https://rpc.ankr.com/arbitrum",
