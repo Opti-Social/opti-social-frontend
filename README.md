@@ -2,7 +2,8 @@
 
 Opti Social is the first Web3 Social network on Optimism. It uses [Orbis SDK](https://github.com/OrbisWeb3/orbis-sdk) and Ceramic Network in the background.
 
-Link: https://opti.social
+- Link: https://opti.social
+- Docs: https://github.com/Opti-Social/opti-social-frontend/wiki 
 
 What's included:
 
