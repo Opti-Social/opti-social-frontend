@@ -85,7 +85,7 @@ export default defineNuxtConfig({
       punkMinterAddress: "", // punk domain minter contract address
       punkNumberOfPrices: 1, // number of different prices (based on domain length), usually 1 (price()) or 5 (price1char() - price5char())
       punkTldAddress: "0x320881Fff17c9a2189226c61ad1157DFF80b18B5", // punk domain TLD address
-      randomPostsNumber: 1, // number of random post NFTs to show in the sidebar widget
+      randomPostsNumber: 3, // number of random post NFTs to show in the sidebar widget
       showRepliesOnHomepage: true, // show replies on the homepage     
       stakingContractAddress: "", // this is also the stake/gov token address
       stakeTokenSymbol: "", // stake token symbol (governance token symbol)

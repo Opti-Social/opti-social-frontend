@@ -7,7 +7,7 @@
 
   <div class="card-body sidebar-card-body">
     <div class="row">
-      <div class="col-12" v-for="id in randomNumbers" :key="id">
+      <div :class="getImageColumnWidth" v-for="id in randomNumbers" :key="id">
         <MintedPostImage :id="id" @click="$emit('closeRightSidebar')" />
       </div>
     </div>
@@ -51,6 +51,14 @@ export default {
         return "Random Minted Posts"
       }
     },
+
+    getImageColumnWidth() {
+      if (this.$config.randomPostsNumber === 1) {
+        return "col-12"
+      } else {
+        return "col-12 mt-4"
+      }
+    }
   },
 
   methods: {
