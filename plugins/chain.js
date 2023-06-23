@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import { getRpcs, getRpcs2 } from "~/utils/rpcUtils";
 
 export default defineNuxtPlugin(() => {
-  //const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
+  const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
 
   function getChainName(chainId) {
     if (chainId === 1) {
@@ -47,222 +47,152 @@ export default defineNuxtPlugin(() => {
   }
 
   function getFallbackProvider(networkId) {
-    let urls;
+    let mainRpc = config.rpcCustom;
 
-      if (networkId === 137) {
-        // Polygon PoS Chain
-        urls = [
-          "https://rpc.ankr.com/polygon"
-        ];
-      } else if (networkId === 80001) {
-        // Mumbai testnet (Polygon testnet)
-        urls = [
-          "https://matic-mumbai.chainstacklabs.com"
-        ]
-      } else if (networkId === 10) {
-        // Optimism
-        urls = [
-          "https://mainnet.optimism.io"
-        ]; 
-      } else if (networkId === 19) {
-        // Songbird
-        urls = [
-          //"https://api.flare.network/songbird/bc/C/rpc?x-apikey=YOUR_API_KEY",
-          //"https://sgb.ftso.com.au/ext/bc/C/rpc",
-          "https://songbird-api.flare.network/ext/C/rpc"
-        ]; 
-      } else if (networkId === 56) {
-        // BSC mainnet
-        urls = [
-          "https://rpc.ankr.com/bsc"
-        ];
-      } else if (networkId === 77) {
-        // Gnosis Chain testnet (Sokol)
-        urls = [
-          "https://sokol.poa.network"
-        ];
-      } else if (networkId === 100) {
-        // Gnosis Chain
-        urls = [
-          "https://rpc.ankr.com/gnosis"
-        ];
-      } else if (networkId === 250) {
-        // Fantom Mainnet
-        urls = [
-          "https://rpc.ankr.com/fantom"
-        ];
-      } else if (networkId === 420) {
-        // Optimism Goerli testnet
-        urls = [
-          //getRpcs2()[String(networkId)],
-          getRpcs()[String(networkId)]
-        ];
-      } else if (networkId === 4002) {
-        // Fantom Testnet
-        urls = [
-          "https://rpc.ankr.com/fantom_testnet",
-          //"https://rpc.testnet.fantom.network",
-          "https://fantom-testnet.public.blastapi.io"
-        ];
-      } else if (networkId === 42161) {
-        // Arbitrum
-        urls = [
-          "https://rpc.ankr.com/arbitrum"
-        ];
-      } else if (networkId === 421611) {
-        // Arbitrum testnet
-        urls = [
-          "https://rinkeby.arbitrum.io/rpc"
-        ];
-      } else if (networkId === 421613) {
-        // Arbitrum Goerli testnet
-        urls = [
-          "https://goerli-rollup.arbitrum.io/rpc"
-        ];
-      } else if (networkId === 1313161555) {
-        // Aurora testnet
-        urls = [
-          "https://testnet.aurora.dev"
-        ];
-      }
+    if (!mainRpc) {
+      mainRpc = getRpcs()[networkId];
+    }
 
-      if (urls) {
-        const providers = urls.map(url => new ethers.providers.JsonRpcProvider(url));
-        return new ethers.providers.FallbackProvider(providers, 1); // return fallback provider
-      } else {
-        return null;
-      }
+    let urls = [
+      // getRpcs2()[networkId],
+      mainRpc
+    ];
+
+    if (urls) {
+      const providers = urls.map(url => new ethers.providers.JsonRpcProvider(url));
+      return new ethers.providers.FallbackProvider(providers, 1); // return fallback provider
+    } else {
+      return null;
+    }
   }
 
   function switchChain(networkName) {
     let method;
+    let networkId;
     let params;
 
     if (networkName == "Ethereum") {
       method = "wallet_switchEthereumChain"
       params = [{ chainId: "0x1" }] 
-    } else if (networkName == "Ropsten") {
-      method = "wallet_switchEthereumChain"
-      params = [{ chainId: "0x3" }] 
-    } else if (networkName == "Rinkeby") {
-      method = "wallet_switchEthereumChain"
-      params = [{ chainId: "0x4" }] 
     } else if (networkName == "Polygon Testnet") {
+      networkId = 80001;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://mumbai.polygonscan.com" ],
-        chainId: "0x13881",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Mumbai Testnet",
         nativeCurrency: { decimals: 18, name: "Matic", symbol: "MATIC" }, 
-        rpcUrls: ["https://matic-mumbai.chainstacklabs.com"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Arbitrum Testnet") {
+      networkId = 421611;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://testnet.arbiscan.io" ],
-        chainId: "0x66EEB",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Arbitrum Testnet",
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: ["https://rinkeby.arbitrum.io/rpc"]
+        rpcUrls: [getRpcs2()[networkId]] 
       }] 
     } else if (networkName == "Arbitrum") {
+      networkId = 42161;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://arbiscan.io" ],
-        chainId: "0xA4B1",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Arbitrum One",
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: ["https://arb1.arbitrum.io/rpc"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Optimism") {
+      networkId = 10;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://optimistic.etherscan.io/" ],
-        chainId: "0xA",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Optimism",
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: ["https://rpc.ankr.com/optimism"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Optimism Goerli Testnet") {
+      networkId = 420;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://goerli-optimism.etherscan.io/" ],
-        chainId: "0x1a4",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Optimism Goerli Testnet",
         nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: ["https://goerli.optimism.io"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Polygon") {
+      networkId = 137;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://polygonscan.com" ],
-        chainId: "0x89",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Polygon PoS Chain",
         nativeCurrency: { decimals: 18, name: "MATIC", symbol: "MATIC" }, 
-        rpcUrls: ["https://rpc.ankr.com/polygon"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Gnosis Testnet") {
+      networkId = 77;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://blockscout.com/poa/sokol" ],
-        chainId: "0x4D",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Gnosis Testnet",
         nativeCurrency: { decimals: 18, name: "SPOA", symbol: "SPOA" }, 
-        rpcUrls: ["https://sokol.poa.network"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Gnosis Chain") {
+      networkId = 100;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://blockscout.com/xdai/mainnet" ],
-        chainId: "0x64",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Gnosis Chain",
         nativeCurrency: { decimals: 18, name: "XDAI", symbol: "XDAI" }, 
-        rpcUrls: ["https://rpc.gnosischain.com"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "BNB Smart Chain") {
+      networkId = 56;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://bscscan.com/" ],
-        chainId: "0x38",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "BNB Smart Chain",
         nativeCurrency: { decimals: 18, name: "BNB", symbol: "BNB" }, 
-        rpcUrls: ["https://bscrpc.com"]
-      }] 
-    } else if (networkName == "Aurora Testnet") {
-      method = "wallet_addEthereumChain"
-      params = [{ 
-        blockExplorerUrls: [ "https://testnet.aurorascan.dev/" ],
-        chainId: "0x4E454153",
-        chainName: "Aurora Testnet",
-        nativeCurrency: { decimals: 18, name: "ETH", symbol: "ETH" }, 
-        rpcUrls: ["https://testnet.aurora.dev"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Fantom") {
+      networkId = 250;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://ftmscan.com" ],
-        chainId: "0xFA",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Fantom",
         nativeCurrency: { decimals: 18, name: "FTM", symbol: "FTM" }, 
-        rpcUrls: ["https://rpc.ankr.com/fantom"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Fantom Testnet") {
+      networkId = 4002;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://testnet.ftmscan.com" ],
-        chainId: "0xFA2",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Fantom Testnet",
         nativeCurrency: { decimals: 18, name: "FTM", symbol: "FTM" }, 
-        rpcUrls: ["https://rpc.ankr.com/fantom_testnet"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     } else if (networkName == "Songbird") {
+      networkId = 19;
       method = "wallet_addEthereumChain"
       params = [{ 
         blockExplorerUrls: [ "https://songbird-explorer.flare.network/" ],
-        chainId: "0x13",
+        chainId: ethers.utils.hexValue(networkId),
         chainName: "Songbird",
         nativeCurrency: { decimals: 18, name: "SGB", symbol: "SGB" }, 
-        rpcUrls: ["https://sgb.ftso.com.au/ext/bc/C/rpc"]
+        rpcUrls: [getRpcs2()[networkId]]
       }] 
     }
 

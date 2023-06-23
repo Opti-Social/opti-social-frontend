@@ -1,5 +1,5 @@
 export function getRpcs() {
-  const config = useRuntimeConfig();
+  //const config = useRuntimeConfig();
   
   return {
     "1": "https://rpc.ankr.com/eth",
@@ -11,7 +11,7 @@ export function getRpcs() {
     "100": "https://rpc.ankr.com/gnosis",
     "137": "https://rpc.ankr.com/polygon",
     "250": "https://rpc.ankr.com/fantom",
-    "420": "https://opt-goerli.g.alchemy.com/v2/" + config.rpcOptGoerlyKey,
+    "420": "https://optimism-goerli.public.blastapi.io",
     "592": "https://astar.public.blastapi.io",
     "1284": "https://rpc.ankr.com/moonbeam",
     "42161": "https://rpc.ankr.com/arbitrum",
@@ -28,14 +28,16 @@ export function getRpcs2() {
     "10": "https://optimism-mainnet.public.blastapi.io",
     "14": "https://flare-api.flare.network/ext/C/rpc",
     "16": "https://coston-api.flare.network/ext/C/rpc",
-    "19": "https://songbird-api.flare.network/ext/C/rpc",
+    "19": "https://sgb.ftso.com.au/ext/bc/C/rpc",
     "56": "https://rpc.ankr.com/bsc",
+    "77": "https://sokol.poa.network",
     "100": "https://rpc.ankr.com/gnosis",
     "137": "https://rpc.ankr.com/polygon",
     "250": "https://rpc.ankr.com/fantom",
-    "420": "https://optimism-goerli.public.blastapi.io",
+    "420": "https://goerli.optimism.io",
     "592": "https://astar.public.blastapi.io",
     "1284": "https://rpc.ankr.com/moonbeam",
+    "4002": "https://rpc.ankr.com/fantom_testnet",
     "42161": "https://rpc.ankr.com/arbitrum",
     "43114": "https://rpc.ankr.com/avalanche",
     "80001": "https://matic-mumbai.chainstacklabs.com"
