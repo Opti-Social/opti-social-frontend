@@ -86,6 +86,7 @@ export default defineNuxtConfig({
       punkNumberOfPrices: 1, // number of different prices (based on domain length), usually 1 (price()) or 5 (price1char() - price5char())
       punkTldAddress: "0x320881Fff17c9a2189226c61ad1157DFF80b18B5", // punk domain TLD address
       randomPostsNumber: 3, // number of random post NFTs to show in the sidebar widget
+      rpcOptGoerlyKey: process.env.RPC_OPTIMISM_GOERLI_KEY || "", // Optimism Goerli RPC key (from e.g. Alchemy or Infura)
       showRepliesOnHomepage: true, // show replies on the homepage     
       stakingContractAddress: "", // this is also the stake/gov token address
       stakeTokenSymbol: "", // stake token symbol (governance token symbol)
