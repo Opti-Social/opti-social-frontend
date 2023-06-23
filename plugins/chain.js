@@ -94,8 +94,8 @@ export default defineNuxtPlugin(() => {
       } else if (networkId === 420) {
         // Optimism Goerli testnet
         urls = [
-          getRpcs()[String(networkId)],
-          getRpcs2()[String(networkId)]
+          //getRpcs2()[String(networkId)],
+          getRpcs()[String(networkId)]
         ];
       } else if (networkId === 4002) {
         // Fantom Testnet
