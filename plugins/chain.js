@@ -2,7 +2,7 @@ import { ethers } from 'ethers';
 import { getRpcs, getRpcs2 } from "~/utils/rpcUtils";
 
 export default defineNuxtPlugin(() => {
-  const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
+  //const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
 
   function getChainName(chainId) {
     if (chainId === 1) {
