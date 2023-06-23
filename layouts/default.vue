@@ -342,7 +342,7 @@ export default {
 
     const coinbaseConnector = new CoinbaseWalletConnector({
 			appName: config.projectName,
-			jsonRpcUrl: getRpcs[String(config.supportedChainId)],
+			jsonRpcUrl: getRpcs()[String(config.supportedChainId)],
 		});
 
 		const mmConnector = new MetaMaskConnector({
@@ -351,7 +351,7 @@ export default {
 
 		const wcConnector = new WalletConnectConnector({
 			qrcode: true,
-			rpc: getRpcs,
+			rpc: getRpcs(),
 		});
     
     return { 

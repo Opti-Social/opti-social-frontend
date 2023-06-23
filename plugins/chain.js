@@ -1,7 +1,8 @@
 import { ethers } from 'ethers';
+import { getRpcs, getRpcs2 } from "~/utils/rpcUtils";
 
 export default defineNuxtPlugin(() => {
-  //const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
+  const config = useRuntimeConfig() // access env vars like this: config.alchemyPolygonKey
 
   function getChainName(chainId) {
     if (chainId === 1) {
@@ -93,7 +94,8 @@ export default defineNuxtPlugin(() => {
       } else if (networkId === 420) {
         // Optimism Goerli testnet
         urls = [
-          "https://optimism-goerli.public.blastapi.io"
+          getRpcs()[String(networkId)],
+          getRpcs2()[String(networkId)]
         ];
       } else if (networkId === 4002) {
         // Fantom Testnet
