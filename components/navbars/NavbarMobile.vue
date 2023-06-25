@@ -7,7 +7,8 @@
       </button>
 
       <NuxtLink class="navbar-brand mx-auto" to="/">
-        {{$config.projectName}}
+        <img src="/img/logo.png" alt="Chat logo" height="30">
+        opti.social
       </NuxtLink>
 
       <button @click="toggleRightSidebar" class="nav-item btn navbar-toggler nav-btn-right" type="button">
