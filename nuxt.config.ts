@@ -64,8 +64,8 @@ export default defineNuxtConfig({
       iggyPostEnumerationAddress: "0x11e54cd16D627677Fd011fd87786aEcF318b5A32",
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "", // LP token symbol
-      marketplaceCollectionUrl: "https://testnets.opensea.io/collection/opti-social-posts/",
-      marketplaceNftItemUrl: "https://testnets.opensea.io/assets/optimism-goerli/0x06A7Ab7Bb68b0ad6eB7688C5781E60BE6AFc658d/", // url (append nft id to it)
+      marketplaceCollectionUrl: "https://testnets.opensea.io/collection/opti-social-posts-4/",
+      marketplaceNftItemUrl: "https://testnets.opensea.io/assets/optimism-goerli/0xeC5Af9F794B9f26bB62Cd951088445c95EAF428D/", // url (append nft id to it)
       maxImageUploadSizeMb: 1, // max image upload size in MB
       orbisContext: "kjzl6cwe1jw14bmb4kgw6gbu6umo8jz9vxjsunueihadbpr9977tj93s2diycb1", // production context
       orbisTest: false, // if true, test context will be used instead of the production one
