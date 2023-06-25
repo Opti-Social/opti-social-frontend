@@ -59,9 +59,9 @@ export default defineNuxtConfig({
       domainRequiredToPost: true,
       favicon: "/img/favicon.png",
       getPostsLimit: 30, // number of posts to fetch from Orbis in the getPosts() function
-      iggyPostAddress: "0x06A7Ab7Bb68b0ad6eB7688C5781E60BE6AFc658d",
-      iggyPostMinterAddress: "0x5e54CebB2612744cB56547bC7CC41466ad7ac557",
-      iggyPostEnumerationAddress: "0xF40284a811c82b4B9ab22E94Bb909Df6d2c66C08",
+      iggyPostAddress: "0xeC5Af9F794B9f26bB62Cd951088445c95EAF428D",
+      iggyPostMinterAddress: "0x20eD4822b53896d768cAF10Eb64DCa16fA7a00dE",
+      iggyPostEnumerationAddress: "0x11e54cd16D627677Fd011fd87786aEcF318b5A32",
       lpTokenAddress: "", // liquidity pool token (token to stake in the staking contract)
       lpTokenSymbol: "", // LP token symbol
       marketplaceCollectionUrl: "https://testnets.opensea.io/collection/opti-social-posts/",
