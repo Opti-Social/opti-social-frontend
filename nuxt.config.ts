@@ -67,7 +67,7 @@ export default defineNuxtConfig({
       marketplaceCollectionUrl: "https://testnets.opensea.io/collection/opti-social-posts-4/",
       marketplaceNftItemUrl: "https://testnets.opensea.io/assets/optimism-goerli/0xeC5Af9F794B9f26bB62Cd951088445c95EAF428D/", // url (append nft id to it)
       maxImageUploadSizeMb: 1, // max image upload size in MB
-      orbisContext: "kjzl6cwe1jw14bmb4kgw6gbu6umo8jz9vxjsunueihadbpr9977tj93s2diycb1", // production context
+      orbisContext: "kjzl6cwe1jw146m10z35spyxndk5ee6t1rc7jon2wxaygubp1ei0i6ancxd0l6w", // production context
       orbisTest: false, // if true, test context will be used instead of the production one
       orbisTestContext: "kjzl6cwe1jw145tfqv2eqv8tiz6puo27meyz4smz40atppuc13tulqca87k35z2", // test context
       previewImage: "/img/cover.png",
