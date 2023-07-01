@@ -4,8 +4,8 @@
 
 :root {
   --bs-primary: #FF0420 !important;
-  --bs-primary-rgb: 210, 127, 151;
-  --bs-btn-disabled-border-color: #FF0420;
+  --bs-primary-rgb: 255, 4, 32;
+  --bs-btn-disabled-border-color: #ff0420;
   --bs-nav-pills-link-active-bg: #FF0420 !important;
   --bs-link-color: #FF0420;
   --bs-link-hover-color: #ff364c;
@@ -267,6 +267,14 @@ a:hover {
 .main-containter {
   flex: 0 0 auto;
   width: auto;
+}
+
+.muted-text {
+  font-size: 14px;
+}
+
+.muted-text a {
+  text-decoration: none;
 }
 
 .nav {
