@@ -9,7 +9,9 @@ export default defineNuxtPlugin(() => {
       return "Ethereum";
     } else if (chainId === 10) {
       return "Optimism";
-    } else if (chainId === 19) {
+    } else if (chainId === 14) {
+      return "Flare";
+    }  else if (chainId === 19) {
       return "Songbird";
     } else if (chainId === 56) {
       return "BNB Smart Chain";
@@ -192,6 +194,16 @@ export default defineNuxtPlugin(() => {
         chainId: ethers.utils.hexValue(networkId),
         chainName: "Songbird",
         nativeCurrency: { decimals: 18, name: "SGB", symbol: "SGB" }, 
+        rpcUrls: [getRpcs2()[networkId]]
+      }] 
+    } else if (networkName == "Flare") {
+      networkId = 14;
+      method = "wallet_addEthereumChain"
+      params = [{ 
+        blockExplorerUrls: [ "https://flare-explorer.flare.network/" ],
+        chainId: ethers.utils.hexValue(networkId),
+        chainName: "Flare",
+        nativeCurrency: { decimals: 18, name: "FLR", symbol: "FLR" }, 
         rpcUrls: [getRpcs2()[networkId]]
       }] 
     }
